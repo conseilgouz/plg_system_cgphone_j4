@@ -1,0 +1,10 @@
+/**
+ * @component     Plugin CG Phone
+ * Version			: 2.0.0
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ * @copyright (c) 2021 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz 
+**/
+span.cghidden:before {
+    content: attr(data-cg);
+}
