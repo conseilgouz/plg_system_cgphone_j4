@@ -6,8 +6,8 @@
 	<authorUrl>www.conseilgouz.com</authorUrl>
 	<copyright>Copyright(C)2021 ConseilGouz</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-	<creationDate>2021 October</creationDate>
-	<version>2.0.0</version>
+	<creationDate>2022 August</creationDate>
+	<version>2.0.1</version>
 	<description>PLG_CG_PHONE_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<files>
