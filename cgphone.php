@@ -1,7 +1,7 @@
 <?php
 /**
  * @component     Plugin CG Phone
- * Version			: 2.0.0
+ * Version			: 2.0.2
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @copyright (c) 2021 ConseilGouz. All Rights Reserved.
  * @author ConseilGouz 
@@ -36,22 +36,22 @@ class PlgSystemCgPhone extends CMSPlugin
 		}
 		$regex = '/{(cgphone=)\s*(.*?)}/i';
         if ($context == "com_contact.contact") {
-            preg_match_all($regex, $row->telephone, $matches);
-            $row->telephone = $this->go_replace($row->telephone,$matches);
-            preg_match_all($regex, $row->mobile, $matches);
-            $row->mobile = $this->go_replace($row->mobile,$matches);
-            preg_match_all($regex, $row->fax, $matches);
-            $row->fax = $this->go_replace($row->fax,$matches);
+            preg_match_all($regex, (string)$row->telephone, $matches);
+            $row->telephone = $this->go_replace((string)$row->telephone,$matches);
+            preg_match_all($regex,(string)$row->mobile, $matches);
+            $row->mobile = $this->go_replace((string)$row->mobile,$matches);
+            preg_match_all($regex, (string)$row->fax, $matches);
+            $row->fax = $this->go_replace((string)$row->fax,$matches);
             
         } else {
-            preg_match_all($regex, $row->text, $matches);
-            preg_match_all($regex, $row->text, $matches);
-            $row->text = $this->go_replace($row->text,$matches);
+            preg_match_all($regex, (string)$row->text, $matches);
+            preg_match_all($regex, (string)$row->text, $matches);
+            $row->text = $this->go_replace((string)$row->text,$matches);
             
         }
 	return true;
 	}
-    private function go_replace($text,$matches){
+    private function go_replace(String $text,$matches){
 		$count = count($matches[0]);
 		for ($i = 0; $i < $count; $i++) {
 			$r  = str_replace('{cgphone=', '', $matches[0][$i]);
