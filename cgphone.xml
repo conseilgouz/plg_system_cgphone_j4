@@ -4,10 +4,10 @@
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<copyright>Copyright(C)2021 ConseilGouz</copyright>
+	<copyright>Copyright(C)2023 ConseilGouz</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-	<creationDate>2022 August</creationDate>
-	<version>2.0.2</version>
+	<creationDate>2023/06/10</creationDate>
+	<version>2.1.0</version>
 	<description>PLG_CG_PHONE_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<files>
@@ -31,9 +31,9 @@
 			</fieldset>
 		</fields>
 	</config>
-	<changelogurl>https://www.conseilgouz.com/updates/plg_system_cgphone_changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_system_cgphone_j4/master/plg_system_cgphone_changelog.xml</changelogurl>
 	<updateservers>
-		<server type="extension" name="System - CG Phone" priority="1">https://www.conseilgouz.com/updates/plg_system_cgphone_update.xml</server>
+		<server type="extension" name="System - CG Phone" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/plg_system_cgphone_update.xml</server>
 	</updateservers>
 	
 </extension>
