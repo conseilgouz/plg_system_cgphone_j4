@@ -1,11 +1,11 @@
 <?php
 /**
- * @component     Plugin CG Phone
- * Version			: 2.0.2
- * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @copyright (c) 2021 ConseilGouz. All Rights Reserved.
- * @author ConseilGouz 
- * {cgphone=<phone#> | img=<an image>}
+* CG Phone  - Joomla 4.x/5.x Plugin
+* Version			: 2.1.1
+* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+* @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+* @author ConseilGouz 
+* {cgphone=<phone#> | img=<an image>}
 **/
 
 // No direct access.
@@ -70,7 +70,7 @@ class PlgSystemCgPhone extends CMSPlugin
 				if ($img == "") {
 					$replace = '<span class="cghidden '.$this->deviceType.'" data-cg="'.$phone.'"></span>';
 				} else {
-					$replace = '<img class="cghidden_img '.$this->deviceType.'" src="'.JURI::base().$img.'" />';
+					$replace = '<img class="cghidden_img '.$this->deviceType.'" src="'.URI::base().$img.'" />';
 				}
 			}
 			$text = str_replace($matches[0][$i], $replace, $text);

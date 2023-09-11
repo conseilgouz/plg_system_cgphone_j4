@@ -3,6 +3,18 @@
 		<element>plg_system_cgphone</element>
 		<type>plugin</type>
 		<group>system</group>
+		<version>2.1.1</version>
+        <note>
+            <item>Update : 11/09/2023</item>
+        </note>
+        <fix>
+            <item>Joomla 5.x compatibility</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>plg_system_cgphone</element>
+		<type>plugin</type>
+		<group>system</group>
 		<version>2.1.0</version>
         <note>
             <item>Update : 10/06/2023</item>

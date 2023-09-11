@@ -1,18 +1,17 @@
 <?php
 /**
-* CG Phone  - Joomla 4.0.0 Plugin
-* Version			: 2.0.0
-* Package			: CG Resa
-* copyright 		: Copyright (C) 2021 ConseilGouz. All rights reserved.
+* CG Phone  - Joomla 4.x/5.x Plugin
+* Version			: 2.1.1
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 // No direct access to this file
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class PlgSystemCgPhoneInstallerScript
 {
@@ -27,8 +26,6 @@ class PlgSystemCgPhoneInstallerScript
 	public function __construct()
 	{
 		$this->dir = __DIR__;
-		$this->lang = Factory::getLanguage();
-		$this->lang->load($this->extname);
 	}
 
     function preflight($type, $parent)
@@ -146,7 +143,7 @@ class PlgSystemCgPhoneInstallerScript
 	}
 	private function uninstallInstaller()
 	{
-		if ( ! JFolder::exists(JPATH_PLUGINS . '/system/' . $this->installerName)) {
+		if ( ! is_dir(JPATH_PLUGINS . '/system/' . $this->installerName)) {
 			return;
 		}
 		$this->delete([
