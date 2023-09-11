@@ -7,7 +7,7 @@
 	<copyright>Copyright(C)2023 ConseilGouz</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<creationDate>2023-09-11</creationDate>
-	<version>2.1.1</version>
+	<version>2.1.2</version>
 	<description>PLG_CG_PHONE_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<files>
