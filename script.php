@@ -15,8 +15,8 @@ use Joomla\Filesystem\File;
 
 class PlgSystemCgPhoneInstallerScript
 {
-	private $min_joomla_version      = '3.9.0';
-	private $min_php_version         = '7.2';
+	private $min_joomla_version      = '5.0.0';
+	private $min_php_version         = '8.0';
 	private $name                    = 'CG Phone';
 	private $exttype                 = 'plugin';
 	private $extname                 = 'cgphone';

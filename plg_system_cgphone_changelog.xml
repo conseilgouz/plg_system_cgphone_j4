@@ -3,6 +3,18 @@
 		<element>plg_system_cgphone</element>
 		<type>plugin</type>
 		<group>system</group>
+		<version>2.2.0</version>
+        <note>
+            <item>Update : 10/02/202</item>
+        </note>
+        <change>
+            <item>Joomla 5.x : becomes a service provider</item>
+        </change>
+	</changelog>
+	<changelog>
+		<element>plg_system_cgphone</element>
+		<type>plugin</type>
+		<group>system</group>
 		<version>2.1.2</version>
         <note>
             <item>Update : 11/09/2023</item>

@@ -1,13 +1,13 @@
 <?php
 /**
 * CG Phone  - Joomla 4.x/5.x Plugin
-* Version			: 2.1.1
-* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-* @copyright (c) 2023 ConseilGouz. All Rights Reserved.
+* Version			: 2.2.0
+* @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+* @copyright (c) 2024 ConseilGouz. All Rights Reserved.
 * @author ConseilGouz 
 * {cgphone=<phone#> | img=<an image>}
 **/
-
+namespace ConseilGouz\Plugin\System\CGPhone\Extension;
 // No direct access.
 defined('_JEXEC') or die();
 use Joomla\CMS\Cache\Cache;
@@ -15,27 +15,42 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Environment\Browser;
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Event\SubscriberInterface;
+use Joomla\CMS\Event\Content\ContentPrepareEvent;
 
-class PlgSystemCgPhone extends CMSPlugin
+final class Cgphone extends CMSPlugin implements SubscriberInterface
 {
 	protected $loaded;
 	protected $deviceType;
+    public $myname='Cgphone';
+    private $xmlParser;
+    protected $autoloadLanguage = true;
+   
+    public static function getSubscribedEvents(): array
+    {
+        return [
+			'onAfterRespond' => 'onAfter',
+            'onContentPrepare'   => 'onContent'
+		];
+    }
 
-	public function onAfterRespond()
+    public function onAfter()
 	{
 		$this->clearCacheGroups(array('com_content','com_contact'), array(0, 1));
 	}
-	public function onContentPrepare($context, &$row, $params, $page = 0)
+	public function onContent(ContentPrepareEvent $event)
 	{
 		if (!$this->loaded) { // load CSS only once
 			$this->loaded = true;
-			$document = Factory::getDocument();
-			$document->addStyleSheet(URI::base() . "plugins/system/cgphone/css/cgphone.css");
-			$code= $this->params->get('css_gen');
-			$document->addStyleDeclaration($code);
+			$media	= 'media/plg_system_cgphone/';
+			/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+			$wa = Factory::getDocument()->getWebAssetManager();
+			$wa->registerAndUseStyle('cgphone',$media.'css/cgphone.css');
+			if ($this->params->get('css_gen')) $wa->addInlineStyle($this->params->get('css_gen')); 
 		}
+		$row = $event->getItem();
 		$regex = '/{(cgphone=)\s*(.*?)}/i';
-        if ($context == "com_contact.contact") {
+		if ($event->getContext() == "com_contact.contact") {
             preg_match_all($regex, (string)$row->telephone, $matches);
             $row->telephone = $this->go_replace((string)$row->telephone,$matches);
             preg_match_all($regex,(string)$row->mobile, $matches);
@@ -112,7 +127,7 @@ class PlgSystemCgPhone extends CMSPlugin
 					$cache = Cache::getInstance('callback', $options);
 					$cache->clean();
 				}
-				catch (Exception $e)
+				catch (\Exception $e)
 				{
 					// Ignore it
 				}
